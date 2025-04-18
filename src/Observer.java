@@ -1,3 +1,3 @@
 public interface Observer {
-    void update(String videoTitle);
+    void update(String message);
 }

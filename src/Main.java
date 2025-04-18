@@ -1,25 +1,27 @@
-public class Main {
-    public static void main(String[] args) {
-        // Create the YouTube channel
-        YouTubeChannel channel = new YouTubeChannel();
+public class Main { 
+    public static void main(String[] args) { 
+        // Create the scoreboard (Subject) 
+        FootballScoreboard scoreboard = new FootballScoreboard(); 
 
-        // Create clients
-        Observer mobileClient = new MobileClient("John");
-        Observer webClient = new WebClient("Alice");
+        // Create different platforms (Observers) 
+        Observer mobileApp = new MobileApp("John's Phone");
+        Observer tvChannel = new TVChannel("ESPN"); 
+        Observer website = new Website("LiveScore.com"); 
 
-        // Subscribe clients
-        channel.subscribe(mobileClient);
-        channel.subscribe(webClient);
+        scoreboard.subscribe(mobileApp); 
+        scoreboard.subscribe(tvChannel); 
+        scoreboard.subscribe(website); 
 
-        // Upload a new video
-        channel.uploadVideo("Design Patterns Tutorial");
+        scoreboard.setScore("Team A 1 - 0 Team B"); 
 
-        System.out.println("------");
+        System.out.println("------"); 
 
-        // Unsubscribe a client
-        channel.unsubscribe(webClient);
+        scoreboard.unsubscribe(tvChannel); 
 
-        // Upload another video
-        channel.uploadVideo("Java Multithreading Tutorial");
-    }
+        scoreboard.setScore("Team A 2 - 0 Team B"); 
+
+        System.out.println("------"); 
+
+        scoreboard.setMatchStatus("Full-Time");  
+    }  
 }
